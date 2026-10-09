@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop everyday groceries with Fresh Mart.">
+  <title>Fresh Mart | Online Grocery Delivery</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home">Fresh Mart</a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#cart">Cart <span id="cart-count" class="cart-count">0</span></a>
+        <a href="#orders">Orders</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="welcome-section">
+      <div class="welcome-inner">
+        <p class="eyebrow">Everyday essentials, made easy</p>
+        <h1>Welcome to Fresh Mart</h1>
+        <p>Find fresh groceries for your home and place a simple delivery order.</p>
+        <form id="search-form" class="search-form" role="search">
+          <label class="visually-hidden" for="product-search">Search products</label>
+          <input id="product-search" name="search" type="search" placeholder="Search for milk, apples, rice..." autocomplete="off">
+          <button class="button button-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="page-content">
+      <div id="mode-banner" class="mode-banner" role="status" aria-live="polite">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="mode-label">Checking connection...</span>
+      </div>
+
+      <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+      <section id="products" class="content-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Our selection</p>
+            <h2>Grocery Products</h2>
+          </div>
+          <p id="product-result-count" class="muted-text"></p>
+        </div>
+        <div id="product-list" class="product-grid" aria-live="polite"></div>
+        <p id="no-products" class="empty-state" hidden>No products matched your search. Try another name.</p>
+      </section>
+
+      <section id="product-details" class="content-section details-section" aria-labelledby="details-heading" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Product information</p>
+            <h2 id="details-heading">Product Details</h2>
+          </div>
+          <button id="close-details" class="button button-secondary" type="button">Close</button>
+        </div>
+        <div id="details-content"></div>
+      </section>
+
+      <section id="cart" class="content-section" aria-labelledby="cart-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Review your selection</p>
+            <h2 id="cart-heading">Shopping Cart</h2>
+          </div>
+        </div>
+        <div id="cart-content"></div>
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+      </section>
+
+      <section id="checkout" class="content-section" aria-labelledby="checkout-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Almost there</p>
+            <h2 id="checkout-heading">Delivery Details</h2>
+          </div>
+        </div>
+        <form id="checkout-form" class="checkout-form">
+          <div class="form-field">
+            <label for="customer-name">Customer name</label>
+            <input id="customer-name" name="name" type="text" autocomplete="name" required maxlength="100">
+          </div>
+          <div class="form-field">
+            <label for="customer-phone">Phone number</label>
+            <input id="customer-phone" name="phone" type="tel" autocomplete="tel" required maxlength="15" pattern="[0-9]{7,15}" title="Enter a phone number using 7 to 15 digits.">
+          </div>
+          <div class="form-field form-field-wide">
+            <label for="delivery-address">Delivery address</label>
+            <textarea id="delivery-address" name="address" rows="3" autocomplete="street-address" required maxlength="300"></textarea>
+          </div>
+          <div class="checkout-submit">
+            <p class="muted-text">Please add at least one item before placing your order.</p>
+            <button id="place-order" class="button button-primary" type="submit">Place Order</button>
+          </div>
+        </form>
+        <div id="order-confirmation" class="confirmation-card" aria-live="polite" hidden></div>
+      </section>
+
+      <section id="orders" class="content-section" aria-labelledby="tracking-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Delivery updates</p>
+            <h2 id="tracking-heading">Order Tracking</h2>
+          </div>
+        </div>
+        <form id="tracking-form" class="tracking-form">
+          <div class="form-field">
+            <label for="tracking-id">Order ID</label>
+            <input id="tracking-id" name="orderId" type="text" placeholder="Enter your order ID" required>
+          </div>
+          <button class="button button-secondary" type="submit">Track Order</button>
+        </form>
+        <div id="tracking-result" class="tracking-result" aria-live="polite" hidden></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Fresh Mart &mdash; Online Grocery Delivery System practical demonstration</p>
+  </footer>
+</body>
+</html>
